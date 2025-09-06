@@ -1,12 +1,17 @@
 // ==UserScript==
-// @name         Nexus Mods – Updated & Downloaded Mod Highlighter (All Views)
+// @name         NexusMods – Highlight Updated & Downloaded Mods on Nexus
 // @version      1.0.1
 // @license      GPL-3.0-or-later
-// @description  Highlight mods with "Update available" (yellow) or "Downloaded" (green) across Standard, List, and Compact views
+// @description  Highlights mods with "Update available" (yellow) or "Downloaded" (green) across Standard, List, and Compact views
 // @author       Flimbo
 // @match        https://*.nexusmods.com/games/*/mods*
 // @grant        none
 // @run-at       document-idle
+// @homepageURL  https://github.com/BitGrub/Userscripts
+// @homepage     https://github.com/BitGrub/Userscripts
+// @supportURL   https://github.com/BitGrub/Userscripts/issues
+// @downloadURL  https://github.com/BitGrub/Userscripts/master/nexus.highlighter.js
+// @updateURL    https://github.com/BitGrub/Userscripts/master/nexus.highlighter.js
 // ==/UserScript==
 
 (() => {
@@ -15,8 +20,6 @@
   const STYLE_ID  = 'nm-highlighter-style';
   const HL_UPDATE = 'nm-update-card';
   const HL_DOWN   = 'nm-downloaded-card';
-
-  // Explicit tile wrappers (covers mod-tile, mod-tile-list, mod-tile-standard, mod-tile-compact)
   const TILE_SELECTOR = '[data-e2eid="mod-tile"],[data-e2eid="mod-tile-list"],[data-e2eid="mod-tile-standard"],[data-e2eid="mod-tile-compact"]';
 
   function injectCSS() {
@@ -52,13 +55,11 @@
   }
 
   function applyFromBadges() {
-    // Mark updates first (so update beats downloaded)
     document.querySelectorAll('[data-e2eid="mod-tile-update-available"]').forEach(b => {
       const tile = b.closest(TILE_SELECTOR);
       if (tile) tile.classList.add(HL_UPDATE);
     });
 
-    // Then mark downloaded where update isn't present
     document.querySelectorAll('[data-e2eid="mod-tile-downloaded"]').forEach(b => {
       const tile = b.closest(TILE_SELECTOR);
       if (tile && !tile.classList.contains(HL_UPDATE)) tile.classList.add(HL_DOWN);
@@ -77,7 +78,6 @@
 
   function boot() {
     injectCSS();
-    // initial pass
     markAllDebounced();
 
     // observe DOM for badges/tiles being added (infinite scroll / hydration)
