@@ -5,6 +5,7 @@
 // @description  Highlights mods with "Update available" (yellow) or "Downloaded" (green) across Standard, List, and Compact views
 // @author       Flimbo
 // @match        https://*.nexusmods.com/games/*/mods*
+// @match        https://*.nexusmods.com/profile/*/mods*
 // @grant        none
 // @run-at       document-idle
 // @homepageURL  https://github.com/BitGrub/Userscripts
