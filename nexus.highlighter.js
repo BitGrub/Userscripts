@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         NexusMods – Highlight Updated & Downloaded Mods on Nexus
-// @version      1.0.1
+// @version      1.0.2
 // @license      GPL-3.0-or-later
 // @description  Highlights mods with "Update available" (yellow) or "Downloaded" (green) across Standard, List, and Compact views
 // @author       Flimbo
