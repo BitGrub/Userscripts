@@ -11,8 +11,8 @@
 // @homepageURL  https://github.com/BitGrub/Userscripts
 // @homepage     https://github.com/BitGrub/Userscripts
 // @supportURL   https://github.com/BitGrub/Userscripts/issues
-// @downloadURL  https://github.com/BitGrub/Userscripts/master/nexus.highlighter.js
-// @updateURL    https://github.com/BitGrub/Userscripts/master/nexus.highlighter.js
+// @downloadURL  https://raw.githubusercontent.com/BitGrub/Userscripts/main/nexus.highlighter.js
+// @updateURL    https://raw.githubusercontent.com/BitGrub/Userscripts/main/nexus.highlighter.js
 // ==/UserScript==
 
 (() => {
